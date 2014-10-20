@@ -25,6 +25,13 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
+/**
+ * This Activity implements a favorite list of pickup line represented as a ListView object
+ * The List is being populated every time from the database and with the help of two array list to maintain it.
+ * 
+ * @author Nadav ELiyahu.
+ *
+ */
 @SuppressLint({ "ShowToast", "ViewHolder" })
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class FavoritesList extends Activity  
@@ -32,6 +39,7 @@ public class FavoritesList extends Activity
 	
 	int ListSize;
 	int toDelete;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
@@ -42,16 +50,20 @@ public class FavoritesList extends Activity
 		final ListView lv = (ListView)findViewById(R.id.listViewFavorites);
 		ImageButton binButton = (ImageButton)findViewById(R.id.imageButtonBin);
 		
+		//animation for when an item is deleted
 		final Animation fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
 		fadeOut.reset();
 		fadeOut.setFillAfter(true);
 		
+		//use the Data Base and utility lists
 		final SQLLightDao sqldao = new SQLLightDao(this);
 		int limit_size = sqldao.getNumberOfRows();
 		favorites = sqldao.getDataFromSaveList(favorites , limit_size);
+		//copy to temp list for further use
+		final ArrayList<String> TempList = new ArrayList<String>(favorites);
 		
-		final List<String> TempList = new ArrayList<String>(favorites);
-		
+		//listener for when the user select an item from the list 
+		//stores the position of the item to show it in another activity
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			
 			@Override
@@ -64,44 +76,45 @@ public class FavoritesList extends Activity
 			}
 		});
 		
+		//listener for long click in order to delete the item
 		lv.setOnItemLongClickListener(new OnItemLongClickListener() 
 		{
 			@Override
 			public boolean onItemLongClick(AdapterView<?> parent, View view,
 					int position, long id)
-			{					
-					toDelete = position;
+			{	
+				//store position of the item that was long clicked
+					toDelete = position;				
 					int countPos = position+1;
 					Toast.makeText(FavoritesList.this, "pickup line "+countPos+" was selected", 4000).show();														
 				return true;
 			}
 		});
 		
+		//the button that perform the delete action
 		binButton.setOnClickListener(new OnClickListener() 
 		{
 			
 			@Override
 			public void onClick(View v) 
-			{	
-
-				if(toDelete!= lv.getLastVisiblePosition())
-				{
-					//some logic here... to solve matching numbers between DB and ListView row numbers
-				}
-				if(sqldao.deleteFromFavorites(toDelete))
-				{	
-					lv.getChildAt(toDelete).startAnimation(fadeOut);
-					//Toast.makeText(FavoritesList.this, "pickup line "+toDelete+" was deleted", 4000).show();
-					ProgressDialog dialog = ProgressDialog.show(FavoritesList.this, "removing pickup line", 
-		                    "Loading. Please wait...", true);
-					new Thread(new Runnable(){
-
+			{
+				//use of the temp list to maintain the listView
+				TempList.remove(toDelete);	
+				//get the correct item to animate on
+				lv.getChildAt(toDelete).startAnimation(fadeOut);
+				//show loading dialog
+				ProgressDialog dialog = ProgressDialog.show(FavoritesList.this, "removing pickup line", 
+		             "Loading. Please wait...", true);
+				//new thread to commit all changes on to the database and start the same activity again (sort of refresh)
+				new Thread(new Runnable(){
 						@Override
 						public void run() {
 							try {
-								
+								String categoryName = sqldao.getCategory(toDelete);
+								sqldao.deleteAllFromFavorites();
+								sqldao.ArrayListToDB(TempList, categoryName);
 								Thread.sleep(2000);
-								Intent intent = new Intent(FavoritesList.this , FavoritesList.class);								
+								Intent intent = new Intent(FavoritesList.this , FavoritesList.class);
 								startActivity(intent);
 								finish();
 							} catch (InterruptedException e) {
@@ -113,14 +126,9 @@ public class FavoritesList extends Activity
 						
 					}).start();											
 				}
-				else
-				{
-					sqldao.deleteAllFromFavorites();
-					Toast.makeText(FavoritesList.this, "error deleting from DB", 4000).show();		
-				}
-			}
 		});
 		
+		//performing the transformation from the arraylist to viewlist with the adapter.
 		try
 		{
 			final StableArrayAdapter adapter = new StableArrayAdapter(this,
@@ -135,16 +143,30 @@ public class FavoritesList extends Activity
 		
 	}
 	
+	//when the user press back on the device the activity would terminate and the user would be brought to the main activity
 	@Override
 	public void onBackPressed() {
 		finish();		
 	}
-		  
+	
+	/**
+	 * This private class is an implementation of a custom adapter to show the ListView from ArrayList.
+	 * This class uses @see HashMap to map every object from the ArrayList to the ListView with an id.
+	 * @author Nadav ELiyahu.
+	 *
+	 */
+	//private class to implement custom adapter .
 	private class StableArrayAdapter extends ArrayAdapter<String> 
 	{
 
 	    HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
 
+	    /**
+	     * This method creates the mapping for the adapter.
+	     * @param context The context of this class
+	     * @param textViewResourceId The resource of the ListView.
+	     * @param objects The List or ArrayList.
+	     */
 	    public StableArrayAdapter(Context context, int textViewResourceId,
 	        List<String> objects) 
 	    {
