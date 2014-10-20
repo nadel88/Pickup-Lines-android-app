@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9edbf2"
+    tools:context="${relativePackage}.${activityClass}" >
+    
+    
+    <TextView
+        android:id="@+id/textViewFavorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:text="@string/favorites_list"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="50dp"        
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/listViewFavorites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"       
+        android:layout_below="@+id/textViewFavorites"
+        android:layout_marginBottom="129dp" >
+
+    </ListView>
+
+    <ImageButton
+        android:id="@+id/imageButtonBin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/binicon" />
+
+</RelativeLayout>

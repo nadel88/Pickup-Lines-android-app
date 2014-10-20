@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9edbf2"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:text="@string/manu_title"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/ButtonClubLine"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/shape_squre"
+        android:textStyle="bold"       
+        android:text="@string/club_line" />
+
+    <Button
+        android:id="@+id/ButtonStreetLine"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ButtonClubLine"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_squre"
+        android:textStyle="bold" 
+        android:text="@string/street_line" />
+
+    <Button
+        android:id="@+id/ButtonPubLine"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_above="@+id/ButtonStreetLine"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/shape_squre"
+        android:textStyle="bold" 
+        android:text="@string/pub_line" />
+
+    <Button
+        android:id="@+id/ButtonCasualFriends"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/ButtonStreetLine"
+        android:background="@drawable/shape_squre"
+        android:textStyle="bold" 
+        android:text="@string/casual_line" />
+    
+    
+
+</RelativeLayout>
