@@ -4,7 +4,7 @@
     <string name="app_name">Pickup Line</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="manu_title">Menu</string>
+    <string name="manu_title">Categories</string>
     <string name="street_line">At the Street Pickup lines</string>
     <string name="club_line">At the Club pickup lines</string>
     <string name="pub_line">At the Pub Pickup line</string>
@@ -20,5 +20,11 @@
     <string name="menu_favorites">Favorites</string>
     <string name="menu_help">Help</string>
     <string name="title_activity_show_favorite_line">Show Favorite Line</string>
+    <string name="facebook_app_id">1485933001687315</string>
+    <string name="title_activity_facebook_log">FacebookLogActivity</string>
+    <string name="title_login_activity">LoginActivity</string>
+    <string name="title_activity_help_acrivity">HelpAcrivity</string>
+    <string name="help">Help</string>
+    <string name="show_favorite_line">Your Line</string>
 
 </resources>

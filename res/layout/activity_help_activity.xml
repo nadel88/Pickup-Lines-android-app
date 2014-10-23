@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9edbf2"
+    tools:context="${relativePackage}.${activityClass}" >
+
+     <TextView
+         android:id="@+id/textView1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentTop="true"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="16dp"
+         android:gravity="top|center"
+         android:text="@string/help"
+         android:textAppearance="?android:attr/textAppearanceLarge"
+         android:textSize="50dp"
+         android:textStyle="bold" />
+
+     <TextView
+         android:id="@+id/textView2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/textView1"
+         android:layout_marginBottom="35dp"
+         android:layout_marginLeft="25dp"
+         android:layout_marginRight="23dp"
+         android:layout_marginTop="38dp"
+         android:textSize="16sp"
+         android:textStyle="bold"
+         android:text="This application was developed by Nadav Eliyahu.\nAll the content(pickup lines) is randomly generated from a fixed local database to create interest.\nThe application uses facebook to post pickup lines to the uesr wall and share it with whoever he wish to do so.\nattention!!! all the content is intended to mature audience and may not be appropriate for kids.\nIn case of a bug please contact me at nadaveli88@gmail.com. " />
+
+</RelativeLayout>

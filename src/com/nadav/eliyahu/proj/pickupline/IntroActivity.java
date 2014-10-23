@@ -22,7 +22,7 @@ public class IntroActivity extends Activity
 				// TODO Auto-generated method stub
 				try {
 					Thread.sleep(5000);
-					startActivity(new Intent(IntroActivity.this,MainActivity.class));
+					startActivity(new Intent(IntroActivity.this,FacebookLogActivity.class));
 					finish();
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block

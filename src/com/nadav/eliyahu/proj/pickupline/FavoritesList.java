@@ -72,6 +72,7 @@ public class FavoritesList extends Activity
 				Intent intent = new Intent(FavoritesList.this,ShowFavoriteLine.class);				
 				intent.putExtra("pickupline",TempList.get(position));
 				startActivity(intent);
+				finish();
 				
 			}
 		});
@@ -146,6 +147,7 @@ public class FavoritesList extends Activity
 	//when the user press back on the device the activity would terminate and the user would be brought to the main activity
 	@Override
 	public void onBackPressed() {
+		startActivity(new Intent(FavoritesList.this , MainActivity.class));
 		finish();		
 	}
 	

@@ -5,6 +5,49 @@
     android:background="#9edbf2"
     tools:context="${relativePackage}.${activityClass}" >
 
+    <Button
+        android:id="@+id/ButtonStreetLine"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@+id/ButtonPubLine"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_squre"
+        android:text="@string/street_line"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/ButtonCasualFriends"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@+id/ButtonPubLine"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="53dp"
+        android:background="@drawable/shape_squre"
+        android:text="@string/casual_line"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/ButtonPubLine"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_above="@+id/ButtonCasualFriends"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/shape_squre"
+        android:text="@string/pub_line"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/ButtonClubLine"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_above="@+id/ButtonStreetLine"
+        android:layout_alignLeft="@+id/ButtonStreetLine"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/shape_squre"
+        android:text="@string/club_line"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -16,49 +59,5 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="50dp"
         android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/ButtonClubLine"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/shape_squre"
-        android:textStyle="bold"       
-        android:text="@string/club_line" />
-
-    <Button
-        android:id="@+id/ButtonStreetLine"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/ButtonClubLine"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/shape_squre"
-        android:textStyle="bold" 
-        android:text="@string/street_line" />
-
-    <Button
-        android:id="@+id/ButtonPubLine"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_above="@+id/ButtonStreetLine"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/shape_squre"
-        android:textStyle="bold" 
-        android:text="@string/pub_line" />
-
-    <Button
-        android:id="@+id/ButtonCasualFriends"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/ButtonStreetLine"
-        android:background="@drawable/shape_squre"
-        android:textStyle="bold" 
-        android:text="@string/casual_line" />
-    
-    
 
 </RelativeLayout>

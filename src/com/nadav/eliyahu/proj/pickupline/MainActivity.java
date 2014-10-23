@@ -28,7 +28,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		StreetButton.setOnClickListener(this);
 			
 	}
-
+	
 	@Override
 	public void onClick(View v) {
 		switch(v.getId())
@@ -63,8 +63,11 @@ public class MainActivity extends Activity implements OnClickListener {
 		{
 		case R.id.favorites:
 			startActivity(new Intent(MainActivity.this,FavoritesList.class));
+			finish();
 			break;
 		case R.id.help:
+			startActivity(new Intent(MainActivity.this,HelpActivity.class));
+			finish();
 			break;
 		}
 	         return super.onOptionsItemSelected(item);

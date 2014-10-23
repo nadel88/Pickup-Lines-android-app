@@ -1,9 +1,24 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#9edbf2"
     tools:context="${relativePackage}.${activityClass}" >
+    
+     <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ButtonClubLine"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="47dp"
+        android:layout_marginTop="23dp"
+        android:text="@string/show_favorite_line"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="50dp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageViewBubbleTalk"
@@ -21,5 +36,13 @@
         android:layout_centerVertical="true"
         android:text="text"
         android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/imageButtonShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/facebook_share2" />
 
 </RelativeLayout>
