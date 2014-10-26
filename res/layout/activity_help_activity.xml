@@ -6,19 +6,6 @@
     tools:context="${relativePackage}.${activityClass}" >
 
      <TextView
-         android:id="@+id/textView1"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentTop="true"
-         android:layout_centerHorizontal="true"
-         android:layout_marginTop="16dp"
-         android:gravity="top|center"
-         android:text="@string/help"
-         android:textAppearance="?android:attr/textAppearanceLarge"
-         android:textSize="50dp"
-         android:textStyle="bold" />
-
-     <TextView
          android:id="@+id/textView2"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
@@ -32,6 +19,20 @@
          android:layout_marginTop="38dp"
          android:textSize="16sp"
          android:textStyle="bold"
-         android:text="This application was developed by Nadav Eliyahu.\nAll the content(pickup lines) is randomly generated from a fixed local database to create interest.\nThe application uses facebook to post pickup lines to the uesr wall and share it with whoever he wish to do so.\nattention!!! all the content is intended to mature audience and may not be appropriate for kids.\nIn case of a bug please contact me at nadaveli88@gmail.com. " />
+         android:text="This application was developed by Nadav Eliyahu.\n\nAll the content(pickup lines) is randomly generated from a fixed local database to create interest.\nThe application uses facebook to post pickup lines to the uesr's wall.\n\nNote: All the content is intended to mature audience and may not be appropriate for kids.\n\nIn case of a bug please contact me at nadaveli88@gmail.com. " />
+
+     <TextView
+         android:id="@+id/textView1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/textView2"
+         android:layout_alignParentTop="true"
+         android:layout_marginLeft="58dp"
+         android:layout_marginTop="16dp"
+         android:gravity="top|center"
+         android:text="@string/help"
+         android:textAppearance="?android:attr/textAppearanceLarge"
+         android:textSize="50dp"
+         android:textStyle="bold" />
 
 </RelativeLayout>

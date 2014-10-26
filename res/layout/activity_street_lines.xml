@@ -37,14 +37,21 @@
   		android:textStyle="bold"
         android:text="text" />
 
-    <Button
-        android:id="@+id/buttonAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/textView2"
-        android:layout_marginRight="117dp"
-        android:text="@string/favorites_add" />
+    <ImageView
+        android:id="@+id/imageViewHeart"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignLeft="@+id/imageViewBubbleTalk"
+        android:src="@drawable/heart_favorites" />
+
+    <ImageView
+        android:id="@+id/imageViewX"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignRight="@+id/imageViewBubbleTalk"
+        android:layout_marginRight="17dp"
+        android:src="@drawable/xicon" />
 
 </RelativeLayout>

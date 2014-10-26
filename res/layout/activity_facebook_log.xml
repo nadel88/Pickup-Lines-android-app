@@ -6,30 +6,14 @@
     android:background="#9edbf2"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/authButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignLeft="@+id/authButton"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="24dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginRight="46dp"
-        android:layout_marginTop="44dp"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:text="Hello and Welcome to the Pickup Lines Application.\n\n\In this page you can login to facebook or just continue to use the application without facebook connectivity.\n\nnote: by choosing to login to facebook you allow the application to post pickup lines of your choice to your facebook wall!" />
-
-    <com.facebook.widget.LoginButton
-        android:id="@+id/authButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="75dp" />
+        android:layout_marginTop="20dp"
+        android:src="@drawable/pickuplinelogo" />
 
     <Button
         android:id="@+id/buttonContinue"
@@ -38,10 +22,33 @@
         android:layout_alignLeft="@+id/authButton"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/authButton"
+        android:layout_marginBottom="29dp"
         android:background="#3b5998"
+        android:text="Continue"
         android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <com.facebook.widget.LoginButton
+        android:id="@+id/authButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonContinue"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="26dp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/authButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginBottom="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="22dp"
         android:textStyle="bold"
-        android:layout_marginBottom="18dp"
-        android:text="Continue" />
+        android:text="Log in with facebook or just continue to use without facebook connectivity.\nNote:if you choose to log in with facebook you allow the application access to your public profile and email.\nLater on if you choose to publish a pickup line to your wall you will be asked to allow publish permissions." />
 
 </RelativeLayout>

@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainFragment extends Fragment {
 	
@@ -63,6 +64,7 @@ public class MainFragment extends Fragment {
 			//if open then store the state mode to true so the user could later post to facebook
 			editor.putBoolean("session_status", true);
 			editor.commit();
+			Toast.makeText(getActivity(), "You are now connected to facebook", 3000).show();
 			
 		}
 		else if(state.isClosed())
@@ -71,6 +73,7 @@ public class MainFragment extends Fragment {
 			//if close then store the state mode to false so the user could not post to facebook.
 			editor.putBoolean("session_status", false);
 			editor.commit();
+			Toast.makeText(getActivity(), "You are now Logged out of facebook", 3000).show();
 			
 		}
 	}

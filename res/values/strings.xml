@@ -26,5 +26,6 @@
     <string name="title_activity_help_acrivity">HelpAcrivity</string>
     <string name="help">Help</string>
     <string name="show_favorite_line">Your Line</string>
+    <string name="welcom_title">Hello and welcom to the pickup lines application.</string>
 
 </resources>

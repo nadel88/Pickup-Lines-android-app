@@ -2,6 +2,7 @@ package com.nadav.eliyahu.proj.pickupline;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,7 +26,8 @@ public class StreetLinesActivity extends Activity {
 						
 		ImageView ivBubble = (ImageView)findViewById(R.id.imageViewBubbleTalk);
 		final TextView tv = (TextView)findViewById(R.id.textView2);
-		Button buttonAdd = (Button)findViewById(R.id.buttonAdd);
+		ImageView heartButton = (ImageView)findViewById(R.id.imageViewHeart);
+		ImageView XButton = (ImageView)findViewById(R.id.imageViewX);
 		
 		sqldao =  new SQLLightDao(this);
 		
@@ -45,18 +47,19 @@ public class StreetLinesActivity extends Activity {
 		fadeIn.reset();
 		fadeIn.setFillAfter(true);
 		tv.startAnimation(fadeIn);
-		buttonAdd.startAnimation(fadeIn);
+		heartButton.startAnimation(fadeIn);
+		XButton.startAnimation(fadeIn);
 		
-		buttonAdd.setOnClickListener(new OnClickListener() {
+		heartButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				try{										
-					int id ;
+					int id = 0 ;
 					int count = sqldao.getNumberOfRows();
 					if(count==0)
 						id = 0;
-					else id = count+1;
+					else id = id+1;
 					sqldao.addToFavoritesDB(id, "street", tv.getText().toString());
 				}
 				catch(NullPointerException e)
@@ -65,13 +68,19 @@ public class StreetLinesActivity extends Activity {
 				}
 				Toast.makeText(StreetLinesActivity.this, "This Pickup Line has been added to favorites", 4000).show();												
 			}
+				
 		});
 		
 		
-		
-		
-		
-		
+		XButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(StreetLinesActivity.this,StreetLinesActivity.class));
+				finish();
+				
+			}
+		});
 		
 	}
 }
