@@ -39,7 +39,7 @@ public class PublishToFacebookFragment extends Fragment {
 	
 	private static final String TAG = "PublishFragment";
 	private UiLifecycleHelper uiHelper;
-	private ImageButton shareButton;
+	private ImageView shareButton;
 	
 	//permission array to allow posting on uesrs wall.
 	private static final List<String> PERMISSIONS = Arrays.asList("publish_actions");
@@ -57,7 +57,7 @@ public class PublishToFacebookFragment extends Fragment {
 		ImageView ivBubble = (ImageView)view.findViewById(R.id.imageViewBubbleTalk);
 		
 		//shareButton declaration.
-		shareButton = (ImageButton) view.findViewById(R.id.imageButtonShare);
+		shareButton = (ImageView) view.findViewById(R.id.imageButtonShare);
 		
 		//check session state to set share button visibility
 		if(getActivity().getSharedPreferences("MyPref", 0).getBoolean("session_status", false)==true)
@@ -242,7 +242,7 @@ public class PublishToFacebookFragment extends Fragment {
 	                    } else {
 	                        Toast.makeText(getActivity()
 	                             .getApplicationContext(), 
-	                             postId,
+	                             /*postId*/"your pickup line has been posted to your facebook wall",
 	                             Toast.LENGTH_LONG).show();
 	                }
 	            }

@@ -37,7 +37,7 @@
         android:text="text"
         android:textStyle="bold" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/imageButtonShare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

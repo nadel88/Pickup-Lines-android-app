@@ -1229,7 +1229,7 @@ containing a value of this type.
         public static final int com_facebook_list_section_header_background=0x7f02006d;
         public static final int com_facebook_loginbutton_silver=0x7f02006e;
         public static final int com_facebook_logo=0x7f02006f;
-        public static final int com_facebook_picker_default_separator_color=0x7f020093;
+        public static final int com_facebook_picker_default_separator_color=0x7f020095;
         public static final int com_facebook_picker_item_background=0x7f020070;
         public static final int com_facebook_picker_list_focused=0x7f020071;
         public static final int com_facebook_picker_list_longpressed=0x7f020072;
@@ -1257,14 +1257,16 @@ containing a value of this type.
         public static final int facebook_share=0x7f020088;
         public static final int facebook_share2=0x7f020089;
         public static final int favoritesicon2=0x7f02008a;
-        public static final int heart_favorites=0x7f02008b;
-        public static final int helpicon=0x7f02008c;
-        public static final int ic_launcher=0x7f02008d;
-        public static final int manwomanintrologo=0x7f02008e;
-        public static final int pickupline_icon=0x7f02008f;
-        public static final int pickuplinelogo=0x7f020090;
-        public static final int shape_squre=0x7f020091;
-        public static final int xicon=0x7f020092;
+        public static final int heart_circle=0x7f02008b;
+        public static final int heart_favorites=0x7f02008c;
+        public static final int helpicon=0x7f02008d;
+        public static final int ic_launcher=0x7f02008e;
+        public static final int manwomanintrologo=0x7f02008f;
+        public static final int pickupline_icon=0x7f020090;
+        public static final int pickuplinelogo=0x7f020091;
+        public static final int shape_squre=0x7f020092;
+        public static final int x_cirlce=0x7f020093;
+        public static final int xicon=0x7f020094;
     }
     public static final class id {
         public static final int ButtonCasualFriends=0x7f05005a;
@@ -1340,8 +1342,8 @@ containing a value of this type.
         public static final int imageView1=0x7f050056;
         public static final int imageView2=0x7f050050;
         public static final int imageViewBubbleTalk=0x7f05004e;
-        public static final int imageViewHeart=0x7f05005d;
-        public static final int imageViewX=0x7f05005e;
+        public static final int imageViewHeart=0x7f05005e;
+        public static final int imageViewX=0x7f05005d;
         public static final int inline=0x7f050007;
         public static final int large=0x7f050002;
         public static final int left=0x7f05000a;
