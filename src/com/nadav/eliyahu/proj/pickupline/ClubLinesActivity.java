@@ -1,33 +1,42 @@
 package com.nadav.eliyahu.proj.pickupline;
 
+import com.nadav.eliyahu.proj.db.FavouritsDataSource;
+import com.nadav.eliyahu.proj.db.PickupLinesDataSource;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ClubLinesActivity extends Activity {
 
+	
+	PickupLinesDataSource datasource;
+	public static final String LOGTAG="PICKAPPLINE";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_club_lines);
 		
 		ImageView ivBubble = (ImageView)findViewById(R.id.imageViewBubbleTalk);
-		TextView tv = (TextView)findViewById(R.id.textView2);
-		SQLLightDao sqldao;
-		sqldao =  new SQLLightDao(this);
+		final TextView tv = (TextView)findViewById(R.id.textView2);
+		ImageView heartButton = (ImageView)findViewById(R.id.imageViewHeart);
+		ImageView XButton = (ImageView)findViewById(R.id.imageViewX);
 		
-		
-		
-		Cursor c = sqldao.getData("club");
-		c.moveToFirst();
-		tv.setText(c.getString(c.getColumnIndex("Line")));
-		
+		datasource = new PickupLinesDataSource(this);
+		datasource.open();
+		tv.setText(datasource.findByCategory("club"));
 		
 		//animation for the talk bubble
 		Animation shake = AnimationUtils.loadAnimation(this, R.anim.wobbleanim);
@@ -40,5 +49,56 @@ public class ClubLinesActivity extends Activity {
 		fadeIn.reset();
 		fadeIn.setFillAfter(true);
 		tv.startAnimation(fadeIn);
+		heartButton.startAnimation(fadeIn);
+		XButton.startAnimation(fadeIn);
+		
+		heartButton.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						try{
+							FavouritsDataSource datasource;
+							datasource = new FavouritsDataSource(ClubLinesActivity.this);
+							datasource.addToFavourites(datasource, ClubLinesActivity.this, "street", tv.getText().toString());
+							Log.i(LOGTAG,tv.getText().toString());
+							
+						}
+						catch(NullPointerException e)
+						{
+							Log.d("CustomExceptionLog", "tv.getText().toString results in exception");
+						}
+						Toast.makeText(ClubLinesActivity.this, "This Pickup Line has been added to favorites", 4000).show();
+						startActivity(new Intent(ClubLinesActivity.this,ClubLinesActivity.class));
+						finish();
+					}
+						
+				});
+				
+				
+		XButton.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						startActivity(new Intent(ClubLinesActivity.this,ClubLinesActivity.class));
+						finish();
+						
+					}
+				});
+		
+		
 	}
+	
+	 @Override
+	    protected void onPause() {
+	    	// TODO Auto-generated method stub
+	    	super.onPause();
+	    	datasource.close();
+	    }
+	    
+	    @Override
+	    protected void onResume() {
+	    	// TODO Auto-generated method stub
+	    	super.onResume();
+	    	datasource.open();
+	    }
 }

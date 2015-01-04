@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9edbf2"
+    android:background="@drawable/blur"
     tools:context="${relativePackage}.${activityClass}" >
 
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_alignLeft="@+id/authButton"
         android:layout_alignParentTop="true"
         android:layout_marginTop="20dp"
-        android:src="@drawable/pickuplinelogo" />
+        android:src="@drawable/pickapplogo" />
 
     <Button
         android:id="@+id/buttonContinue"
@@ -49,6 +49,7 @@
         android:layout_marginRight="24dp"
         android:layout_marginTop="22dp"
         android:textStyle="bold"
+        android:textColor="#ffffff"
         android:text="Log in with facebook or just continue to use without facebook connectivity.\nNote:if you choose to log in with facebook you allow the application access to your public profile and email.\nLater on if you choose to publish a pickup line to your wall you will be asked to allow publish permissions." />
 
 </RelativeLayout>

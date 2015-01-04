@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9edbf2"
+    android:background="@drawable/blur"
     tools:context="${relativePackage}.${activityClass}" >
 
     <ImageView
@@ -12,7 +12,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:src="@drawable/pickuplinelogo" />
+        android:src="@drawable/pickapplogo2" />
 
     <ProgressBar
         android:id="@+id/progressBar1"
@@ -31,5 +31,14 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="14dp"
         android:src="@drawable/manwomanintrologo" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginRight="27dp"
+        android:src="@drawable/loading" />
 
 </RelativeLayout>

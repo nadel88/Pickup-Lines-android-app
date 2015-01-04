@@ -2,24 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9edbf2"
+    android:background="@drawable/blur"
     tools:context="${relativePackage}.${activityClass}" >
-
-     <TextView
-         android:id="@+id/textView2"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentBottom="true"
-         android:layout_alignParentLeft="true"
-         android:layout_alignParentRight="true"
-         android:layout_below="@+id/textView1"
-         android:layout_marginBottom="35dp"
-         android:layout_marginLeft="25dp"
-         android:layout_marginRight="23dp"
-         android:layout_marginTop="38dp"
-         android:textSize="16sp"
-         android:textStyle="bold"
-         android:text="This application was developed by Nadav Eliyahu.\n\nAll the content(pickup lines) is randomly generated from a fixed local database to create interest.\nThe application uses facebook to post pickup lines to the uesr's wall.\n\nNote: All the content is intended to mature audience and may not be appropriate for kids.\n\nIn case of a bug please contact me at nadaveli88@gmail.com. " />
 
      <TextView
          android:id="@+id/textView1"
@@ -33,6 +17,21 @@
          android:text="@string/help"
          android:textAppearance="?android:attr/textAppearanceLarge"
          android:textSize="50dp"
+         android:textColor="#ffffff"
+         android:textStyle="bold" />
+
+     <TextView
+         android:id="@+id/textView2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentRight="true"
+         android:layout_centerVertical="true"
+         android:layout_marginLeft="16dp"
+         android:layout_marginRight="22dp"
+         android:text="This application was developed by Nadav Eliyahu.\n\nAll the content(pickup lines) is randomly generated from a fixed local database to create interest.\nThe application uses facebook to post pickup lines to the uesr&apos;s wall.\n\nNote: All the content is intended to mature audience and may not be appropriate for kids.\n\nIn case of a bug please contact me at nadaveli88@gmail.com. "
+         android:textSize="16sp"
+         android:textColor="#ffffff"
          android:textStyle="bold" />
 
 </RelativeLayout>

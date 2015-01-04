@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9edbf2"
+    android:background="@drawable/blur"
     tools:context="${relativePackage}.${activityClass}" >
     
     <TextView
@@ -15,6 +15,7 @@
         android:text="@string/street_line"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="25dp"
+        android:textColor="#ffffff"
         android:textStyle="bold" />
 
     <ImageView
@@ -23,8 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/textView1"
-        android:layout_alignTop="@+id/textView1"
+        android:layout_marginTop="18dp"
         android:src="@drawable/bubletalkpic" />
 
     <TextView

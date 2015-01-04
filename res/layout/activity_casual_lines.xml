@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9edbf2"
+    android:background="@drawable/blur"
     tools:context="${relativePackage}.${activityClass}" >
     
     <TextView
@@ -15,6 +15,7 @@
         android:text="@string/casual_line"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="25dp"
+        android:textColor="#ffffff"
         android:textStyle="bold" />
 
     <ImageView
@@ -36,5 +37,23 @@
         android:layout_marginBottom="94dp"
   		android:textStyle="bold"
         android:text="text" />
+
+    <ImageView
+        android:id="@+id/imageViewX"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_marginRight="24dp"
+        android:src="@drawable/x_cirlce" />
+
+    <ImageView
+        android:id="@+id/imageViewHeart"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="17dp"
+        android:layout_toLeftOf="@+id/imageViewX"
+        android:src="@drawable/heart_circle" />
 
 </RelativeLayout>

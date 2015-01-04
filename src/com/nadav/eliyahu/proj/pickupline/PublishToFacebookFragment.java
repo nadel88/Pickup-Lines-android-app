@@ -212,11 +212,11 @@ public class PublishToFacebookFragment extends Fragment {
 
 	        //the content of the post 
 	        Bundle postParams = new Bundle();
-	        postParams.putString("name", "Facebook SDK for Android");
-	        postParams.putString("caption", "Build great social apps and get more installs.");
-	        postParams.putString("description", "The Facebook SDK for Android makes it easier and faster to develop Facebook integrated Android apps.");
+	        postParams.putString("name", "PickApp Line");
+	        postParams.putString("caption", "share your favourite pickup line on facebook.");
+	        postParams.putString("description","YOUR PICKUP LINE IS: "+getArguments().getString("pickupline"));
 	        postParams.putString("link", "https://developers.facebook.com/android");
-	        postParams.putString("picture", "https://raw.github.com/fbsamples/ios-3.x-howtos/master/Images/iossdk_logo.png");
+	        postParams.putString("picture","http://i40.photobucket.com/albums/e201/nadaveli88/facebooklogo_zps25947e75.png"); //"https://raw.github.com/fbsamples/ios-3.x-howtos/master/Images/iossdk_logo.png"
 
 	        
 	        //handle the response from the callback of the request

@@ -1,16 +1,20 @@
 package com.nadav.eliyahu.proj.pickupline;
 
+import com.nadav.eliyahu.proj.db.FavouritsDataSource;
+import com.nadav.eliyahu.proj.db.PickupLinesDataSource;
+import com.nadav.eliyahu.proj.modelclasses.FavouritListEntity;
+import com.nadav.eliyahu.proj.modelclasses.PickupLineEntity;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,7 +22,9 @@ import android.widget.Toast;
 @SuppressLint("ShowToast")
 public class StreetLinesActivity extends Activity {
 	
-	SQLLightDao sqldao;
+	
+	PickupLinesDataSource datasource;
+	public static final String LOGTAG="PICKAPPLINE";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,11 +35,10 @@ public class StreetLinesActivity extends Activity {
 		ImageView heartButton = (ImageView)findViewById(R.id.imageViewHeart);
 		ImageView XButton = (ImageView)findViewById(R.id.imageViewX);
 		
-		sqldao =  new SQLLightDao(this);
 		
-		Cursor c = sqldao.getData("street");
-		c.moveToFirst();
-		tv.setText(c.getString(c.getColumnIndex("Line")));
+		datasource = new PickupLinesDataSource(this);
+		datasource.open();
+		tv.setText(datasource.findByCategory("street"));
 		
 		
 		//animation for the talk bubble
@@ -54,19 +59,20 @@ public class StreetLinesActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				try{										
-					int id = 0 ;
-					int count = sqldao.getNumberOfRows();
-					if(count==0)
-						id = 0;
-					else id = id+1;
-					sqldao.addToFavoritesDB(id, "street", tv.getText().toString());
+				try{
+					FavouritsDataSource datasource;
+					datasource = new FavouritsDataSource(StreetLinesActivity.this);
+					datasource.addToFavourites(datasource, StreetLinesActivity.this, "street", tv.getText().toString());
+					Log.i(LOGTAG,tv.getText().toString());
+					
 				}
 				catch(NullPointerException e)
 				{
 					Log.d("CustomExceptionLog", "tv.getText().toString results in exception");
 				}
-				Toast.makeText(StreetLinesActivity.this, "This Pickup Line has been added to favorites", 4000).show();												
+				Toast.makeText(StreetLinesActivity.this, "This Pickup Line has been added to favorites", 4000).show();
+				startActivity(new Intent(StreetLinesActivity.this,StreetLinesActivity.class));
+				finish();
 			}
 				
 		});
@@ -83,4 +89,18 @@ public class StreetLinesActivity extends Activity {
 		});
 		
 	}
+	 @Override
+	    protected void onPause() {
+	    	// TODO Auto-generated method stub
+	    	super.onPause();
+	    	datasource.close();
+	    }
+	    
+	    @Override
+	    protected void onResume() {
+	    	// TODO Auto-generated method stub
+	    	super.onResume();
+	    	datasource.open();
+	    }
+	    
 }

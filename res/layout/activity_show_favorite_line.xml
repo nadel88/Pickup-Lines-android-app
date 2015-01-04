@@ -4,7 +4,7 @@
     
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9edbf2"
+    android:background="@drawable/blur"
     tools:context="${relativePackage}.${activityClass}" >
     
      <TextView
@@ -18,6 +18,7 @@
         android:text="@string/show_favorite_line"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="50dp"
+        android:textColor="#ffffff"
         android:textStyle="bold" />
 
     <ImageView
